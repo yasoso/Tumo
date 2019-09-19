@@ -16,12 +16,30 @@
 <script type="text/javascript">
 function changedata(){
   var id_image = document.getElementById("charactor");
+  var id_item = document.getElementById("item");
   var c_sex = document.getElementById("sex").value;
+  var c_age = document.getElementById("age").value;
+  var c_fav1 = document.getElementById("favo1").value;
+  var c_fav2 = document.getElementById("favo2").value;
   c_sex = String(c_sex);
-  if(c_sex=="女"){
+  c_age = Number(c_age);
+  c_fav1 = String(c_fav1);
+  c_fav2 = String(c_fav2);
+
+  if(c_sex=="男"){
     id_image.src = "images/charactor1.png"
+    if(c_age<=30 && c_age>=20){
+      id_image.src = "images/charactor4.png"
+    }
   }else{
     id_image.src = "images/charactor2.png"
+
+  }
+  if(c_fav1 =="サッカー"||c_fav2 == "サッカー"){
+    id_item.src = "images/soccor.png"
+  }else{
+    
+    id_item.src = "images/heart.png"
   }
 }
 </script>
@@ -39,7 +57,7 @@ function changedata(){
 
 
 <div class ="input-area">
- <input type="text" class="inter-text" id ="name" placeholder="名前">
+ <input type="text" class="inter-text" id ="name" placeholder="もん太郎">
  <p>
  <input type="text" class="inter-text" id ="age" placeholder="年齢">
  <p>
@@ -52,7 +70,8 @@ function changedata(){
 </div>
 
 <dev class="result-area">
-    <img src ="images/charactor1.png" id="charactor" title="charactor" width="150" height="200">
+    <img src ="images/charactor1.png" id="charactor" title="charactor" width="150" height="200" style="position:relative;">
+    <img src = "images/heart.png" id="item" width="50" height="=50" style="position: absolute; right:0px; bottom: 30px;">
 </dev>
 
 <div class ="input-area">
