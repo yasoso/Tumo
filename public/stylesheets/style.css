@@ -3,6 +3,30 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.container{
+  width:1000px;
+  margin:10px auto;
+  position: relative;
+}
+
+.top-area{
+  text-align: center;
+}
+
+.input-area{
+  font-size:0px;
+  text-align: center;
+  margin-top:20px;
+  margin-bottom:70px;
+}
+
+.btm-area{
+  font-size:0px;
+  text-align: center;
+  margin-top:20px;
+  margin-bottom:70px;
+}
+
 a {
   color: #00B7FF;
 }
