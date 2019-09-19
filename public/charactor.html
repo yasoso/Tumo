@@ -10,11 +10,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
- <title>キャラクター設定</title>
- <link rel="stylesheet" href="stylesheets/style.css">
- <!-- <link rel="icon" href="image/favicon.ico"> -->
- </head>
- <body>
+<title>キャラクター設定</title>
+<link rel="stylesheet" href="stylesheets/style.css">
+
+<script type="text/javascript">
+function changedata(){
+  var id_image = document.getElementById("charactor");
+  var c_sex = document.getElementById("sex").value;
+  c_sex = String(c_sex);
+  if(c_sex=="女"){
+    id_image.src = "images/charactor1.png"
+  }else{
+    id_image.src = "images/charactor2.png"
+  }
+}
+</script>
+</head>
+
+<body>
 
 <div class ="container">
 
@@ -30,22 +43,21 @@
  <p>
  <input type="text" class="inter-text" id ="age" placeholder="年齢">
  <p>
+ <input type="text" class="inter-text" id ="sex" placeholder="性別">
+ <p>
  <input type="text" class="inter-text" id ="favo1" placeholder="好きな物1">
  <p>
  <input type="text" class="inter-text" id ="favo2" placeholder="好きな物2">
- <p>
- <input type="text" class="inter-text" id ="favo3" placeholder="好きな物3">
- 
+
 </div>
 
 <dev class="result-area">
-    <img src ="image/pigboy.png" alt="ぶたまる" title="ぶたまる" width="200" height="200">
+    <img src ="images/charactor1.png" id="charactor" title="charactor" width="150" height="200">
 </dev>
 
 <div class ="input-area">
-<div id ="btn">決定</div>
+<div type="button" id ="btn" onClick="Javascript:changedata();">決定</div>
 </div>
 
-<script src="js/main.js"></script>
- </body>
- </html>
+</body>
+</html>

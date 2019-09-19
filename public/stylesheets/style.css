@@ -17,7 +17,6 @@ body{
 .input-area{
   font-size:0px;
   text-align: center;
-  margin-top:20px;
   margin-bottom:70px;
   float: left;
 }
@@ -74,11 +73,11 @@ body{
 /* 結果の表示エリア */
 .result-area{
   background: #f8f8f8;
-  width:50px;
-  padding:60px;
-  height:60px;
+  width:150px;
+  height:200px;
   border: solid;
   border-radius: 5px;
+  margin-bottom:70px;
   position: relative;
   float: left;
 }
