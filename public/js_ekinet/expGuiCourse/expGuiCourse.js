@@ -2172,7 +2172,7 @@ var expGuiCourse = function (pObject, config) {
                     } else {
                         buffer += '<div class="exp_fare">';
                     }
-                    buffer += '<div class="exp_bar"><div class="exp_base"><div class="exp_color"></div></div></div>';
+                    buffer += '<div class="exp_bar"></div>';
                     //buffer += '<div class="exp_end"></div>';
                     buffer += '</div>';
                     buffer += '</div>';
@@ -2992,82 +2992,82 @@ var expGuiCourse = function (pObject, config) {
                     buffer += '</div>';
                 }
             } else if (agent == 2 || agent == 3) {
-                // 運賃が複数あった場合のフォーム出力
-                buffer += '<div class="exp_chargeSelect">';
-                var expectedRemark;
-                for (var i = 0; i < chargeList.length; i++) {
-                    if (chargeList[i].selected == "true") {
-                        buffer += '<div class="exp_chargeSelectText">';
-                        if (typeof chargeList[i].Name != 'undefined') {
-                            buffer += chargeList[i].Name;
-                            if (typeof chargeList[i].Oneway.fullRemark != 'undefined') {
-                              buffer += '【' + chargeList[i].Oneway.fullRemark + '】';
-                            }
-                            if (typeof chargeList[i].Oneway.expectedRemark != 'undefined') {
-                                buffer += '※';
-                                expectedRemark = chargeList[i].Oneway.expectedFullRemark;
-                            }
-                            buffer += " : ";
-                        } else {
-                            buffer += "指定なし:";
-                        }
-                        // 運賃改定未対応
-                        var salesTaxRateIsNotSupported = false;
-                        if (typeof chargeList[i].fareRevisionStatus != 'undefined') {
-                            if (chargeList[i].fareRevisionStatus == 'salesTaxRateIsNotSupported') {
-                                salesTaxRateIsNotSupported = true;
-                            }
-                        }
-                        buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
-                        if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
-                        } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
-                        }
-                        buffer += salesTaxRateIsNotSupported ? '</span>' : '';
-                        buffer += '</div>';
-                    }
-                }
-                if (priceChangeFlag) {
-                    buffer += '<select id="' + baseId + ':chargeSelect:' + String(routeNo) + ':' + chargeList[0].fromLineIndex + '">';
-                    for (var i = 0; i < chargeList.length; i++) {
-                        buffer += '<option value="' + chargeList[i].index + '"' + ((chargeList[i].selected == "true") ? "selected" : "") + '>';
-                        if (typeof chargeList[i].Name != 'undefined') {
-                            buffer += chargeList[i].Name;
-                            if (typeof chargeList[i].Oneway.remark != "undefined") {
-                              buffer += " (" + chargeList[i].Oneway.remark + ")";
-                            }
-                            if (typeof chargeList[i].Oneway.expectedRemark != 'undefined') {
-                                buffer += '※';
-                            }
-                            buffer += " : ";
-                        } else {
-                            buffer += "指定なし:";
-                        }
-                        var salesTaxRateIsNotSupported = false;
-                        if (typeof chargeList[i].fareRevisionStatus != 'undefined') {
-                            if (chargeList[i].fareRevisionStatus == 'salesTaxRateIsNotSupported') {
-                                salesTaxRateIsNotSupported = true;
-                            }
-                        }
-                        buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
-                        if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
-                        } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
-                        }
-                        buffer += salesTaxRateIsNotSupported ? '</span>' : '';
-                        buffer += '</option>';
-                    }
-                    buffer += '</select>';
-                }
+                // // 運賃が複数あった場合のフォーム出力
+                // buffer += '<div class="exp_chargeSelect">';
+                // var expectedRemark;
+                // for (var i = 0; i < chargeList.length; i++) {
+                //     if (chargeList[i].selected == "true") {
+                //         buffer += '<div class="exp_chargeSelectText">';
+                //         if (typeof chargeList[i].Name != 'undefined') {
+                //             buffer += chargeList[i].Name;
+                //             if (typeof chargeList[i].Oneway.fullRemark != 'undefined') {
+                //               buffer += '【' + chargeList[i].Oneway.fullRemark + '】';
+                //             }
+                //             if (typeof chargeList[i].Oneway.expectedRemark != 'undefined') {
+                //                 buffer += '※';
+                //                 expectedRemark = chargeList[i].Oneway.expectedFullRemark;
+                //             }
+                //             buffer += " : ";
+                //         } else {
+                //             buffer += "指定なし:";
+                //         }
+                //         // 運賃改定未対応
+                //         var salesTaxRateIsNotSupported = false;
+                //         if (typeof chargeList[i].fareRevisionStatus != 'undefined') {
+                //             if (chargeList[i].fareRevisionStatus == 'salesTaxRateIsNotSupported') {
+                //                 salesTaxRateIsNotSupported = true;
+                //             }
+                //         }
+                //         buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
+                //         if (priceViewFlag == "oneway") {
+                //             buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
+                //         } else if (priceViewFlag == "round") {
+                //             buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
+                //         }
+                //         buffer += salesTaxRateIsNotSupported ? '</span>' : '';
+                //         buffer += '</div>';
+                //     }
+                // }
+                // if (priceChangeFlag) {
+                //     buffer += '<select id="' + baseId + ':chargeSelect:' + String(routeNo) + ':' + chargeList[0].fromLineIndex + '">';
+                //     for (var i = 0; i < chargeList.length; i++) {
+                //         buffer += '<option value="' + chargeList[i].index + '"' + ((chargeList[i].selected == "true") ? "selected" : "") + '>';
+                //         if (typeof chargeList[i].Name != 'undefined') {
+                //             buffer += chargeList[i].Name;
+                //             if (typeof chargeList[i].Oneway.remark != "undefined") {
+                //               buffer += " (" + chargeList[i].Oneway.remark + ")";
+                //             }
+                //             if (typeof chargeList[i].Oneway.expectedRemark != 'undefined') {
+                //                 buffer += '※';
+                //             }
+                //             buffer += " : ";
+                //         } else {
+                //             buffer += "指定なし:";
+                //         }
+                //         var salesTaxRateIsNotSupported = false;
+                //         if (typeof chargeList[i].fareRevisionStatus != 'undefined') {
+                //             if (chargeList[i].fareRevisionStatus == 'salesTaxRateIsNotSupported') {
+                //                 salesTaxRateIsNotSupported = true;
+                //             }
+                //         }
+                //         buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
+                //         if (priceViewFlag == "oneway") {
+                //             buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
+                //         } else if (priceViewFlag == "round") {
+                //             buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
+                //         }
+                //         buffer += salesTaxRateIsNotSupported ? '</span>' : '';
+                //         buffer += '</option>';
+                //     }
+                //     buffer += '</select>';
+                // }
 
-                buffer += '</div>';
-                if (typeof expectedRemark != 'undefined') {
-                    buffer += '<span class="exp_detail">';
-                    buffer += '※詳細条件で指定された「' + expectedRemark + '」とは別の割引が適用されています。';
-                    buffer += '</span>';
-                }
+                // buffer += '</div>';
+                // if (typeof expectedRemark != 'undefined') {
+                //     buffer += '<span class="exp_detail">';
+                //     buffer += '※詳細条件で指定された「' + expectedRemark + '」とは別の割引が適用されています。';
+                //     buffer += '</span>';
+                // }
             }
         }
 

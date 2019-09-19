@@ -124,6 +124,11 @@ function checkData(){
  * 探索ボタンの動作
  */
 function searchRun(teikiFlag){
+  var counter = document.getElementById("counter").value;
+  // セッションストレージに一時保存
+  sessionStorage.setItem("counter",counter);
+
+
   //入力チェック後に動作
   if(checkData()){
     var searchWord = "";
@@ -223,8 +228,8 @@ function result(isSuccess){
 </head>
 <body onLoad="Javascript:init();">
 
-<input class="btn btn-warning" type="button" value="キャラ設定" onClick="location.href='charactor.html'">
-<div>
+<input class="btn btn-warning" style="float:right" type="button" value="キャラ設定" onClick="location.href='charactor.html'">
+<div style="float:crear">
 <!-- 日付入力パーツ -->
 <table class="sample">
   <tr>
@@ -298,6 +303,7 @@ function result(isSuccess){
     </td>
   </tr>
 </table>
-
+<div class="realtimeuserscounter" id="counter"></div>
+<script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
 </body>
 </html>
