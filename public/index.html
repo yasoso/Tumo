@@ -21,7 +21,7 @@
 <script type="text/javascript" src="js_ekinet/expGuiCondition/expGuiCondition.js?key=rnwfzKX4rvNVZYat" charset="UTF-8"></script>
 <script type="text/javascript" src="js_ekinet/expGuiStation/expGuiStation.js?key=53754d5955444e76415a78707934776735476a3574623554364770326f313159744a754353695969303434" charset="UTF-8"></script>
 <script type="text/javascript" src="js_ekinet/expGuiCourse/expGuiCourse.js?key=53754d5955444e76415a78707934776735476a3574623554364770326f313159744a754353695969303434" charset="UTF-8"></script>
-<script type="text/javascript" src="routes/json2.js"></script>
+<script type="text/javascript" src="json2.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -68,10 +68,10 @@ function init(){
   stationApp3.setConfigure("type",stationApp3.TYPE_TRAIN +":"+ stationApp3.TYPE_PLANE +":"+ stationApp3.TYPE_SHIP);
   stationApp3.dispStation();
 
-  // 探索条件パーツ初期化
-  conditonApp = new expGuiCondition(document.getElementById("condition"));
-  conditonApp.setConfigure("ssl", true);
-  conditonApp.dispCondition();
+  // // 探索条件パーツ初期化
+  // conditonApp = new expGuiCondition(document.getElementById("condition"));
+  // conditonApp.setConfigure("ssl", true);
+  // conditonApp.dispCondition();
 
   // 経路表示パーツ初期化
   resultApp = new expGuiCourse(document.getElementById("result"));
@@ -161,18 +161,19 @@ function searchRun(teikiFlag){
         searchWord += '&searchType=plain';
         break;
     }
-    // ソート
-    searchWord += '&sort='+ conditonApp.getSortType();
-    // 探索結果数
-    searchWord += '&answerCount='+ conditonApp.getAnswerCount();
-    // 探索条件
-    searchWord += '&conditionDetail='+ conditonApp.getConditionDetail();
+    // // ソート
+    // searchWord += '&sort='+ conditonApp.getSortType();
+    // // 探索結果数
+    // searchWord += '&answerCount='+ conditonApp.getAnswerCount();
+    // // 探索条件
+    // searchWord += '&conditionDetail='+ conditonApp.getConditionDetail();
+    
     //定期券が存在する場合はセットする
     if(teikiFlag){
       searchWord += '&assignDetailRoute='+ document.getElementById("passRoute").value;
     }
     // 探索を実行
-    resultApp.search(searchWord,conditonApp.getPriceType(),result);
+    resultApp.search(searchWord,result);
   }
 }
 
@@ -196,12 +197,12 @@ function searchTeiki(){
     // 探索種別
     searchWord += '&date='+ dateTimeApp.getDate();
     searchWord += '&searchType=plain';
-    // ソート
-    searchWord += '&sort='+ conditonApp.getSortType();
-    // 探索結果数
-    searchWord += '&answerCount='+ conditonApp.getAnswerCount();
-    // 探索条件
-    searchWord += '&conditionDetail='+ conditonApp.getConditionDetail();
+    // // ソート
+    // searchWord += '&sort='+ conditonApp.getSortType();
+    // // 探索結果数
+    // searchWord += '&answerCount='+ conditonApp.getAnswerCount();
+    // // 探索条件
+    // searchWord += '&conditionDetail='+ conditonApp.getConditionDetail();
     // 探索を実行
     resultApp.search(searchWord,resultApp.PRICE_TEIKI,result);
   }
