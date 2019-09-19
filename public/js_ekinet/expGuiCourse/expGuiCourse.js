@@ -1909,7 +1909,7 @@ var expGuiCourse = function (pObject, config) {
                                 } else if (fareList.length >= 2) {
                                     fareName += "指定なし" + (agent == 2 ? "<br>" : "&nbsp;");
                                 } else {
-                                    fareName += "乗車券" + (agent == 2 ? "<br>" : "&nbsp;");
+                                    fareName += "乗車人数" + (agent == 2 ? "<br>" : "&nbsp;");
                                 }
                                 // 運賃改定未対応
                                 var salesTaxRateIsNotSupported = false;
@@ -1921,9 +1921,9 @@ var expGuiCourse = function (pObject, config) {
 
                                 var attrs = "id=" + baseId + ':fareMenu:' + String(routeNo) + ':' + String(i + 1) + ':open:2';
                                 if (priceViewFlag == "oneway") {
-                                    fareName += appendRevisionStatusLineClass([fareList[j].RevisionStatus],num2String(getTextValue(fareList[j].Oneway)) + '円', attrs);
+                                    fareName += appendRevisionStatusLineClass([fareList[j].RevisionStatus],num2String(getTextValue(fareList[j].Oneway)) + '人', attrs);
                                 } else if (priceViewFlag == "round") {
-                                    fareName += appendRevisionStatusLineClass([fareList[j].RevisionStatus],num2String(getTextValue(fareList[j].Round)) + '円', attrs);
+                                    fareName += appendRevisionStatusLineClass([fareList[j].RevisionStatus],num2String(getTextValue(fareList[j].Round)) + '人', attrs);
                                 }
 
                                 if (fareList.length >= 2) {
@@ -2491,7 +2491,7 @@ var expGuiCourse = function (pObject, config) {
                 buffer += appendRevisionStatusClass(FareSummaryRevisionStatusResults.concat(ChargeSummaryRevisionStatusResults),(FareSummary+ChargeSummary));
                 if (agent == 1 || agent == 3) {
                     buffer += '<span class="exp_valueDetail">';
-                    buffer += '(乗車券&nbsp;' + num2String(FareSummary) + '円&nbsp;料金' + num2String(ChargeSummary) + '円)';
+                    buffer += '(乗車券&nbsp;' + num2String(FareSummary) + '人&nbsp;料金' + num2String(ChargeSummary) + '円)';
                     buffer += '</span>';
                 }
             }
@@ -2805,7 +2805,7 @@ var expGuiCourse = function (pObject, config) {
                 buffer += '<div class="exp_icon exp_direct">';
             }
             if (type == "train") {
-                buffer += '<span class="exp_train"><img src ="images/charactor1.png" id="charactor" title="charactor" width="50" height="15"></span>';
+                buffer += '<span class="exp_train"></span>';
             } else if (type == "plane") {
                 buffer += '<span class="exp_plane"></span>';
             } else if (type == "ship") {
@@ -2917,9 +2917,9 @@ var expGuiCourse = function (pObject, config) {
                         }
                         buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported" id="' + baseId + ':chargeMenu:' + String(routeNo) + ':' + String(index + 1) + ':open:3">' : '';
                         if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
                         } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
                         }
                         buffer += salesTaxRateIsNotSupported ? '</span>' : '';
                         buffer += '</div>';
@@ -2963,9 +2963,9 @@ var expGuiCourse = function (pObject, config) {
                         buffer += '<span class="exp_costList" id="' + baseId + ':chargeMenu:' + String(routeNo) + ':' + String(index + 1) + ':' + String(chargeList[k].index) + ':cost">';
                         buffer += '<span class="exp_cost" id="' + baseId + ':chargeMenu:' + String(routeNo) + ':' + String(index + 1) + ':' + String(chargeList[k].index) + ':cost:text">';
                         if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[k].Oneway))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[k].Oneway))) + '人';
                         } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[k].Round))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[k].Round))) + '人';
                         }
                         buffer += '</span>';
                         buffer += '</span>';
@@ -3021,9 +3021,9 @@ var expGuiCourse = function (pObject, config) {
                         }
                         buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
                         if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
                         } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
                         }
                         buffer += salesTaxRateIsNotSupported ? '</span>' : '';
                         buffer += '</div>';
@@ -3053,9 +3053,9 @@ var expGuiCourse = function (pObject, config) {
                         }
                         buffer += salesTaxRateIsNotSupported ? '<span class="exp_taxRateIsNotSupported">' : '';
                         if (priceViewFlag == "oneway") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Oneway))) + '人';
                         } else if (priceViewFlag == "round") {
-                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '円';
+                            buffer += num2String(parseInt(getTextValue(chargeList[i].Round))) + '人';
                         }
                         buffer += salesTaxRateIsNotSupported ? '</span>' : '';
                         buffer += '</option>';
