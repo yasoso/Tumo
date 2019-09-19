@@ -13,9 +13,9 @@ var expGuiCourse = function (pObject, config) {
     // ドキュメントのオブジェクトを格納
     var documentObject = pObject;
     var baseId = pObject.id;
-
+    
     // Webサービスの設定
-    var apiURL = "http://api.ekispert.jp/";
+    var apiURL = "https://api.apigw.smt.docomo.ne.jp/ekispertCorp/";
 
     // GETパラメータからキーの設定
     var key;
@@ -366,7 +366,8 @@ var expGuiCourse = function (pObject, config) {
             if (typeof searchObj.getBringAssignmentError() != 'undefined') {
                 searchWord += "&bringAssignmentError=" + searchObj.getBringAssignmentError();
             }
-            url += "v1/json/search/course/extreme?key=" + key + searchWord;
+
+            url += "v1/searchCourseExtreme?APIKEY=" + key + searchWord;
             // エンジンバージョン同一チェック
             if (!checkEngineVersion) {
                 url += "&checkEngineVersion=false";
@@ -389,7 +390,7 @@ var expGuiCourse = function (pObject, config) {
             if (typeof searchObj.getBus() != 'undefined') {
                 searchWord += "&bus=" + searchObj.getBus();
             }
-            url += "v1/json/search/course/plain?key=" + key + searchWord;
+            url += "/v1/searchCourseExtreme?APIKEY=" + key + searchWord;
         } else {
             alert("viaListまたはfrom、toは必須です。");
             return;
