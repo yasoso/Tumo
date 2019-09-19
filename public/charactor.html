@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
  <title>キャラクター設定</title>
- <!-- <link rel="stylesheet" href="css/styles.css"> -->
+ <link rel="stylesheet" href="stylesheets/style.css">
  <!-- <link rel="icon" href="image/favicon.ico"> -->
  </head>
  <body>
@@ -26,26 +26,24 @@
 
 
 <div class ="input-area">
- <input type="text" id ="name" placeholder="名前">
- <dev/>
- <input type="text" id ="age" placeholder="年齢">
- <dev/>
- <input type="text" id ="favo1" placeholder="好きな物1">
- <dev/>
- <input type="text" id ="favo2" placeholder="好きな物2">
- <dev/>
- <input type="text" id ="favo3" placeholder="好きな物3">
- <div id ="btn">決定</div>
+ <input type="text" class="inter-text" id ="name" placeholder="名前">
+ <p>
+ <input type="text" class="inter-text" id ="age" placeholder="年齢">
+ <p>
+ <input type="text" class="inter-text" id ="favo1" placeholder="好きな物1">
+ <p>
+ <input type="text" class="inter-text" id ="favo2" placeholder="好きな物2">
+ <p>
+ <input type="text" class="inter-text" id ="favo3" placeholder="好きな物3">
+ 
 </div>
 
+<dev class="result-area">
+    <img src ="image/pigboy.png" alt="ぶたまる" title="ぶたまる" width="200" height="200">
+</dev>
 
-<div class ="result-area">
-  <p id ="result">結果はここに表示されます</p>
-
-</div>
-
-
-   <img src ="image/pigboy.png" alt="ぶたまる" title="ぶたまる" id="img" width="200" height="200">
+<div class ="input-area">
+<div id ="btn">決定</div>
 </div>
 
 <script src="js/main.js"></script>

@@ -15,7 +15,7 @@ var expGuiStation = function (pObject, config) {
     var baseId = pObject.id;
 
     // Webサービスの設定
-    var apiURL = "http://api.ekispert.jp/";
+    var apiURL = "https://api.apigw.smt.docomo.ne.jp/ekispertCorp/";
 
     // GETパラメータからキーの設定
     var key;
@@ -354,7 +354,7 @@ var expGuiStation = function (pObject, config) {
             closeStationList();
             return;
         }
-        var url = apiURL + "v1/json/station/light?key=" + key + "&name=" + encodeURIComponent(str);
+        var url = apiURL + "v1/station?APIKEY=" + key + "&name=" + encodeURIComponent(str);
         if (typeof stationType != 'undefined') {
             url += "&type=" + stationType;
         } else {
