@@ -22,7 +22,14 @@
 <script type="text/javascript" src="js_ekinet/expGuiStation/expGuiStation.js?key=53754d5955444e76415a78707934776735476a3574623554364770326f313159744a754353695969303434" charset="UTF-8"></script>
 <script type="text/javascript" src="js_ekinet/expGuiCourse/expGuiCourse.js?key=53754d5955444e76415a78707934776735476a3574623554364770326f313159744a754353695969303434" charset="UTF-8"></script>
 <script type="text/javascript" src="routes/json2.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
+
+
 
 var dateTimeApp;// 日付入力パーツ
 var stationApp1;// 駅名入力パーツ#1
@@ -215,7 +222,7 @@ function result(isSuccess){
 </head>
 <body onLoad="Javascript:init();">
 
-<input class="sample_btn" type="button" value="キャラ設定" onClick="location.href='charactor.html'">
+<input class="btn btn-warning" type="button" value="キャラ設定" onClick="location.href='charactor.html'">
 <div>
 <!-- 日付入力パーツ -->
 <table class="sample">
@@ -277,9 +284,9 @@ function result(isSuccess){
 
 <!-- 探索実行ボタン -->
 <div class="sample_btn_area">
-<input class="sample_btn" type="button" value="探索" onClick="Javascript:searchRun(false);">
-<input class="sample_btn" type="button" value="定期区間を控除して探索" onClick="Javascript:searchRun(true);">
-<input class="sample_btn" type="button" value="定期券を探索" onClick="Javascript:searchTeiki();">
+<input class="btn btn-primary" type="button" value="探索" onClick="Javascript:searchRun(false);">
+<input class="btn btn-success" type="button" value="定期区間を控除して探索" onClick="Javascript:searchRun(true);">
+<input class="btn btn-info" type="button" value="定期券を探索" onClick="Javascript:searchTeiki();">
 </div>
 <!-- 経路表示パーツ -->
 <a id="resultArea"></a>

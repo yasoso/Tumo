@@ -1147,6 +1147,14 @@ var expGuiCourse = function (pObject, config) {
             buffer += '<span class="exp_text" id= "' + baseId + ':sort:transfer:text" > 乗換回数順</span>';
             buffer += '</a>';
             buffer += '</div>';
+
+            // 乗り換え順
+            buffer += '<a class="exp_sortButton ' + (sortType == "transfer" ? "exp_rakuButtonSelected" : "exp_rakuButton") + '" id="' + baseId + ':sort:transfer" href="Javascript:void(0);">';
+            buffer += '<span class="exp_raku" id="' + baseId + ':sort:transfer:icon"></span>';
+            buffer += '<span class="exp_text" id= "' + baseId + ':sort:transfer:text" > 乗換回数順</span>';
+            buffer += '</a>';
+            buffer += '</div>';
+            
         }
         // 金額をチェック
         for (var i = 0; i < resultCount; i++) {
