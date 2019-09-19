@@ -2805,7 +2805,7 @@ var expGuiCourse = function (pObject, config) {
                 buffer += '<div class="exp_icon exp_direct">';
             }
             if (type == "train") {
-                buffer += '<span class="exp_train"></span>';
+                buffer += '<span class="exp_train"><img src ="images/charactor1.png" id="charactor" title="charactor" width="50" height="15"></span>';
             } else if (type == "plane") {
                 buffer += '<span class="exp_plane"></span>';
             } else if (type == "ship") {

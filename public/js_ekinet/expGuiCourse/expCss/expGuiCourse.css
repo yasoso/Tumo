@@ -440,6 +440,7 @@
     height: 1em;
     color: #FFFFFF;
     font-size: 1.5em;
+    background: url('../../images/charactor1.png')
 }
 .expGuiCourse .exp_route .exp_detail .exp_line .exp_icon .exp_walk {
     width: 1em;
