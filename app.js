@@ -34,19 +34,18 @@ next();
 })
 
 var data = {
-    num: null
+    num: 0
 };
-
+var count = 0
 
 app.post('/num', function (req, res) {
     // リクエストボディを出力
     console.log(req.body);
-
-    var random = Math.round(Math.random() * 20);
-    data.num = random;
-    
+    count++
+    data.num = count;
     res.set('Content-Type', 'application/json');
     res.send(data);
+
 });
 
 
