@@ -124,10 +124,6 @@ function checkData(){
  * 探索ボタンの動作
  */
 function searchRun(teikiFlag){
-  var counter = document.getElementById("counter").value;
-  // セッションストレージに一時保存
-  sessionStorage.setItem("counter",counter);
-
 
   //入力チェック後に動作
   if(checkData()){
@@ -223,7 +219,14 @@ function result(isSuccess){
     location.href = "#resultArea";
   }
 }
-// -->
+
+document.addEventListener('change', function(e) {
+  var target = event.target;
+  if (target.class == 'realtimeuserscounter__num') {
+    alert(target.value);
+  }
+});
+
 </script>
 </head>
 <body onLoad="Javascript:init();">
@@ -305,5 +308,7 @@ function result(isSuccess){
 </table>
 <div class="realtimeuserscounter" id="counter"></div>
 <script src="https://realtimeusers.bycontrast.co/realtimeusers.js"></script>
+
+
 </body>
 </html>

@@ -2172,7 +2172,12 @@ var expGuiCourse = function (pObject, config) {
                     } else {
                         buffer += '<div class="exp_fare">';
                     }
-                    buffer += '<div class="exp_bar"></div>';
+                    alert(Number(getTextValue(fareList[0].Oneway)));
+                    if(Number(getTextValue(fareList[0].Oneway))>1000){
+                        buffer += '<div class="exp_bar2"></div>';
+                    }else{
+                        buffer += '<div class="exp_bar"></div>';
+                    }
                     //buffer += '<div class="exp_end"></div>';
                     buffer += '</div>';
                     buffer += '</div>';
